@@ -1,26 +1,218 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --obsidian: #111111;
+  --charcoal: #2a2927;
+  --warm-gray: #858078;
+  --ivory: #f4f1ea;
+  --parchment: #e9e4da;
+  --brass: #a99570;
+  --brass-soft: #c4b396;
+  --line: rgba(42, 41, 39, 0.14);
+  --line-light: rgba(244, 241, 234, 0.16);
+  --background: var(--ivory);
+  --foreground: var(--obsidian);
+  --surface-dark: var(--obsidian);
+  --surface-light: var(--ivory);
+  --muted: var(--warm-gray);
+  --accent: var(--brass);
+  --max-width: 1440px;
+  --page-pad: clamp(1.25rem, 4vw, 5rem);
+  --section-y: clamp(5rem, 12vw, 9.5rem);
+  --nav-h: 4.25rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-obsidian: #111111;
+  --color-charcoal: #2a2927;
+  --color-warm-gray: #858078;
+  --color-ivory: #f4f1ea;
+  --color-parchment: #e9e4da;
+  --color-brass: #a99570;
+  --color-brass-soft: #c4b396;
+  --color-background: #f4f1ea;
+  --color-foreground: #111111;
+  --color-muted: #858078;
+  --color-accent: #a99570;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 0.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brass) 35%, transparent);
+  color: var(--obsidian);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-shell {
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+.section-pad {
+  padding-block: var(--section-y);
+}
+
+.eyebrow {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(0.6875rem, 0.8vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.body-lg {
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--charcoal) 88%, transparent);
+}
+
+.editorial-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  border: 0;
+}
+
+.editorial-divider--light {
+  background: var(--line-light);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  background: var(--obsidian);
+  color: var(--ivory);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Form controls */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.85rem 0;
+  font: inherit;
+  color: var(--obsidian);
+  transition: border-color 0.3s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--brass);
+}
+
+.field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.field .error {
+  font-size: 0.8125rem;
+  color: #8a3a2a;
+}
+
+/* Custom cursor (desktop only, applied via class on html) */
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor a,
+html.has-custom-cursor button {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button {
+    cursor: auto;
+  }
 }
