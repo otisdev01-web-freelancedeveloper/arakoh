@@ -21,7 +21,7 @@ export function PerformanceSection() {
                 tone="dark"
               />
             </RevealText>
-            <RevealText as="p" className="mt-8 max-w-lg text-ivory/75 body-lg">
+            <RevealText as="p" className="mt-8 max-w-lg text-[rgba(244,241,234,0.82)] body-lg">
               {performance.body}
             </RevealText>
 

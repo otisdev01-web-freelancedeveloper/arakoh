@@ -30,7 +30,7 @@ export function Biography() {
             <SectionHeading label={about.label} heading={about.heading} />
           </RevealText>
 
-          <div className="mt-8 space-y-5 body-lg max-w-xl">
+          <div className="mt-8 space-y-5 body-lg max-w-xl text-charcoal/85">
             {preview.map((p) => (
               <RevealText key={p.slice(0, 24)} as="p">
                 {p}

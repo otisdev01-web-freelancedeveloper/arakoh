@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/images/ara-koh-hero.jpg",
+        url: "/images/ara-koh-hero-v2.jpg",
         width: 1600,
         height: 2000,
         alt: "Ara Koh, concert pianist and piano professor",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/images/ara-koh-hero.jpg"],
+    images: ["/images/ara-koh-hero-v2.jpg"],
   },
   alternates: {
     canonical: "/",
@@ -83,7 +83,7 @@ const jsonLd = {
         name: siteConfig.university,
       },
       url: siteConfig.url,
-      image: `${siteConfig.url}/images/ara-koh-portrait.jpg`,
+      image: `${siteConfig.url}/images/ara-koh-portrait-v2.jpg`,
       description: siteConfig.description,
     },
     {

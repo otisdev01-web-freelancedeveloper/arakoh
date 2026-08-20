@@ -56,19 +56,19 @@ export const studioContent = {
   achievement: {
     label: "03 / Students",
     heading: "Student achievement",
-    body: "Ara has consistently guided students toward meaningful artistic progress and major competition recognition. Specific award listings and student highlights can be added here as the studio elects to share them.",
-    placeholders: [
+    body: "Ara has consistently guided students toward meaningful artistic progress and major competition recognition. Selected highlights can be published here as the studio chooses to share them.",
+    highlights: [
       {
         title: "Competition recognition",
-        note: "[Client: add selected student achievements here]",
+        note: "Mentorship informed by university teaching and jury experience, supporting students preparing for competitive settings.",
       },
       {
         title: "Performance preparation",
-        note: "[Client: add recital or audition milestones here]",
+        note: "Thoughtful guidance for recitals, auditions, and stage readiness — technical clarity paired with musical presence.",
       },
       {
         title: "Artistic development",
-        note: "[Client: add studio highlights here]",
+        note: "Personalized study that nurtures technique, repertoire growth, and long-term musical maturity.",
       },
     ],
   },

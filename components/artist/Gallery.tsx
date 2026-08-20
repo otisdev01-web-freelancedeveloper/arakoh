@@ -67,11 +67,6 @@ export function Gallery() {
         <RevealText>
           <SectionHeading label={gallery.label} heading={gallery.heading} />
         </RevealText>
-        <p className="mt-4 max-w-xl text-sm text-warm-gray">
-          Temporary editorial archive. Replace files in{" "}
-          <code className="text-obsidian/80">public/images</code> with Ara
-          Koh&apos;s photography.
-        </p>
 
         <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
           {gallery.images.map((image) => (
