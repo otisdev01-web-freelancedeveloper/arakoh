@@ -19,6 +19,7 @@ export function Biography() {
         <RevealImage
           src={about.image.src}
           alt={about.image.alt}
+          objectPosition={about.image.objectPosition}
           className="aspect-[4/5] w-full"
           sizes="(max-width: 1024px) 100vw, 42vw"
           parallax

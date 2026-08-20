@@ -43,6 +43,7 @@ export function PerformanceSection() {
             <RevealImage
               src={performance.image.src}
               alt={performance.image.alt}
+              objectPosition={performance.image.objectPosition}
               className="aspect-[4/5] w-full md:aspect-[5/6]"
               sizes="(max-width: 1024px) 100vw, 46vw"
               parallax

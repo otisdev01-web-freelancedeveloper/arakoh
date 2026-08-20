@@ -34,6 +34,7 @@ export function TeachingTeaser() {
         <RevealImage
           src={teachingTeaser.image.src}
           alt={teachingTeaser.image.alt}
+          objectPosition={teachingTeaser.image.objectPosition}
           className="aspect-[5/4] w-full"
           sizes="(max-width: 1024px) 100vw, 48vw"
         />

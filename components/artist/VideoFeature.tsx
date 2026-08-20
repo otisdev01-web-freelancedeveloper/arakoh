@@ -48,6 +48,7 @@ export function VideoFeature() {
               alt={video.poster.alt}
               fill
               sizes="(max-width: 1440px) 100vw, 1440px"
+              style={{ objectPosition: video.poster.objectPosition }}
               className="object-cover opacity-80 transition-opacity duration-500 group-hover:opacity-70"
             />
           </motion.div>

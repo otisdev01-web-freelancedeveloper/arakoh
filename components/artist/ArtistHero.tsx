@@ -138,9 +138,10 @@ export function ArtistHero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover object-[center_20%]"
+            style={{ objectPosition: heroImage.objectPosition }}
+            className="object-cover"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/20 to-transparent lg:bg-gradient-to-r lg:from-obsidian lg:via-obsidian/35 lg:to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/25 to-obsidian/10 lg:bg-gradient-to-r lg:from-obsidian lg:via-obsidian/45 lg:to-transparent" />
         </div>
       </div>
 

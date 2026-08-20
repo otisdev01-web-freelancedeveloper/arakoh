@@ -1,3 +1,10 @@
+/**
+ * Artist page content.
+ * Image paths come from data/images.ts so client photography can replace
+ * temporary stock files without touching components.
+ */
+import { images } from "@/data/images";
+
 export const artistContent = {
   eyebrow: "Concert Pianist · Professor",
   name: "Ara Koh",
@@ -20,10 +27,8 @@ export const artistContent = {
       "With extensive experience in university-level teaching and service as a competition juror, Ara has consistently guided students toward meaningful artistic growth and major competition recognition. Fluent in both English and Korean, she mentors across languages with clarity, care, and high musical standards.",
       "Her work as a performer, educator, and juror forms a single artistic practice — one rooted in refinement, discipline, and a deep commitment to the piano.",
     ],
-    image: {
-      src: "/images/ara-koh-portrait.jpg",
-      alt: "Editorial piano keys in warm light — temporary stock photography",
-    },
+    // Temporary editorial image — replace with Ara Koh photography
+    image: images.portrait,
   },
 
   performance: {
@@ -35,69 +40,24 @@ export const artistContent = {
       { label: "Base", value: "San Antonio, TX" },
       { label: "Also", value: "Educator · Juror" },
     ],
-    image: {
-      src: "/images/ara-koh-performance-01.jpg",
-      alt: "Grand piano on a concert hall stage — temporary stock photography",
-    },
+    // Temporary editorial image — replace with Ara Koh photography
+    image: images.performance,
   },
 
   video: {
     label: "04 / Media",
     heading: "Watch & Listen",
     body: "A temporary classical piano performance is featured here for atmosphere. Replace with Ara Koh’s preferred YouTube performance when available.",
-    // Temporary stock: classical piano performance (replace with Ara's video)
     youtubeId: "9E6b3swbnWg",
-    poster: {
-      src: "/images/ara-koh-video-poster.jpg",
-      alt: "Classical piano performance video poster — temporary stock",
-    },
+    // Temporary editorial image — replace with Ara Koh photography / YouTube artwork
+    poster: images.videoPoster,
   },
 
   gallery: {
     label: "05 / Gallery",
     heading: "Selected Moments",
-    images: [
-      {
-        src: "/images/ara-koh-gallery-01.jpg",
-        alt: "Piano keys in soft editorial light — stock",
-        span: "tall" as const,
-      },
-      {
-        src: "/images/ara-koh-gallery-02.jpg",
-        alt: "Sheet music and musical detail — stock",
-        span: "wide" as const,
-      },
-      {
-        src: "/images/ara-koh-hero.jpg",
-        alt: "Grand piano keyboard close-up — stock",
-        span: "square" as const,
-      },
-      {
-        src: "/images/ara-koh-studio.jpg",
-        alt: "Hands at the piano in a practice setting — stock",
-        span: "tall" as const,
-      },
-      {
-        src: "/images/ara-koh-performance-01.jpg",
-        alt: "Concert hall with grand piano — stock",
-        span: "wide" as const,
-      },
-      {
-        src: "/images/ara-koh-gallery-03.jpg",
-        alt: "Piano and musical atmosphere — stock",
-        span: "square" as const,
-      },
-      {
-        src: "/images/ara-koh-performance-02.jpg",
-        alt: "Pianist on stage from the wings — stock",
-        span: "wide" as const,
-      },
-      {
-        src: "/images/ara-koh-gallery-04.jpg",
-        alt: "Stage and piano under concert lighting — stock",
-        span: "square" as const,
-      },
-    ],
+    // Temporary editorial archive — replace with Ara Koh photography
+    images: images.gallery,
   },
 
   teachingTeaser: {
@@ -105,10 +65,8 @@ export const artistContent = {
     heading: "Private Piano Studio",
     body: "In her San Antonio home studio near Stone Oak, Ara offers thoughtful private instruction shaped by university teaching experience, performance insight, and bilingual mentorship in English and Korean.",
     cta: { label: "Explore the Studio", href: "/studio" },
-    image: {
-      src: "/images/ara-koh-studio.jpg",
-      alt: "Private piano practice atmosphere — temporary stock photography",
-    },
+    // Temporary editorial image — replace with Ara Koh photography
+    image: images.studio,
   },
 
   contactCta: {
@@ -117,10 +75,9 @@ export const artistContent = {
     body: "For private piano lesson inquiries in San Antonio and Stone Oak, get in touch.",
     cta: { label: "Inquire About Lessons", href: "/studio#inquire" },
     emailLabel: "Email",
+    background: images.contact,
   },
 
-  heroImage: {
-    src: "/images/ara-koh-hero.jpg",
-    alt: "Editorial grand piano keyboard — temporary stock photography for Ara Koh",
-  },
+  // Temporary editorial image — replace with Ara Koh photography
+  heroImage: images.hero,
 } as const;

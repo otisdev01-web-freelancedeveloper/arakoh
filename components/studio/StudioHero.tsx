@@ -107,6 +107,7 @@ export function StudioHero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 46vw"
+            style={{ objectPosition: hero.image.objectPosition }}
             className="object-cover"
           />
         </div>

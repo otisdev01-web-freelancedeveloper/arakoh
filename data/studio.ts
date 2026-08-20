@@ -1,3 +1,5 @@
+import { images } from "@/data/images";
+
 export const studioContent = {
   hero: {
     eyebrow: "Private Instruction",
@@ -7,10 +9,8 @@ export const studioContent = {
     location: "San Antonio · Stone Oak",
     ctaPrimary: { label: "Inquire About Lessons", href: "#inquire" },
     ctaSecondary: { label: "View Tuition", href: "#tuition" },
-    image: {
-      src: "/images/ara-koh-studio.jpg",
-      alt: "Hands at the piano in a private studio setting — temporary stock photography",
-    },
+    // Temporary editorial image — replace with Ara Koh photography
+    image: images.studio,
   },
 
   philosophy: {
@@ -22,6 +22,8 @@ export const studioContent = {
       "Ara Koh approaches private teaching with the same seriousness she brings to the concert stage and the university classroom. Lessons are personalized, musically rigorous, and shaped around each student’s goals — from foundational development to performance and competition preparation.",
       "Drawing on extensive university-level teaching experience and her work as a competition juror, she mentors students with precision, warmth, and clear artistic standards. Instruction is available with fluent communication in English and Korean.",
     ],
+    // Temporary editorial image — replace with Ara Koh photography
+    image: images.teaching,
   },
 
   whyStudy: {

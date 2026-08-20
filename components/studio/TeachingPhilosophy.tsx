@@ -1,6 +1,7 @@
 "use client";
 
 import { studioContent } from "@/data/studio";
+import { RevealImage } from "@/components/ui/RevealImage";
 import { RevealText } from "@/components/ui/RevealText";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -17,6 +18,15 @@ export function TeachingPhilosophy() {
               heading={philosophy.heading}
             />
           </RevealText>
+          {"image" in philosophy && philosophy.image ? (
+            <RevealImage
+              src={philosophy.image.src}
+              alt={philosophy.image.alt}
+              objectPosition={philosophy.image.objectPosition}
+              className="mt-10 aspect-[4/3] w-full"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          ) : null}
         </div>
         <div>
           <RevealText

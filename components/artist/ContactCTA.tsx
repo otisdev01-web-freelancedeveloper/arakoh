@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { artistContent } from "@/data/artist";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
@@ -10,8 +11,22 @@ export function ContactCTA() {
   const { contactCta } = artistContent;
 
   return (
-    <section className="section-pad bg-obsidian text-ivory">
-      <div className="site-shell max-w-4xl text-center md:mx-auto">
+    <section className="relative overflow-hidden section-pad bg-obsidian text-ivory">
+      {contactCta.background ? (
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src={contactCta.background.src}
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectPosition: contactCta.background.objectPosition }}
+            className="object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-obsidian/75" />
+        </div>
+      ) : null}
+
+      <div className="site-shell relative z-10 max-w-4xl text-center md:mx-auto">
         <RevealText>
           <p className="eyebrow text-brass-soft">{contactCta.label}</p>
         </RevealText>
