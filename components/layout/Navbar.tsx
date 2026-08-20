@@ -11,8 +11,42 @@ import { useScrolled } from "@/hooks/useMedia";
 import { Button } from "@/components/ui/Button";
 import { SoundToggle } from "@/components/audio/SoundToggle";
 
+function useHash() {
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const sync = () => setHash(window.location.hash || "");
+    sync();
+    window.addEventListener("hashchange", sync);
+    window.addEventListener("scroll", sync, { passive: true });
+    return () => {
+      window.removeEventListener("hashchange", sync);
+      window.removeEventListener("scroll", sync);
+    };
+  }, []);
+
+  return hash;
+}
+
+function isNavActive(
+  href: string,
+  pathname: string | null,
+  hash: string,
+): boolean {
+  if (href === "/") {
+    return pathname === "/" && (!hash || hash === "#");
+  }
+  if (href.startsWith("/#")) {
+    const target = href.slice(1); // e.g. #performances
+    return pathname === "/" && hash === target;
+  }
+  const base = href.split("#")[0];
+  return Boolean(pathname?.startsWith(base));
+}
+
 export function Navbar() {
   const pathname = usePathname();
+  const hash = useHash();
   const scrolled = useScrolled(24);
   const [open, setOpen] = useState(false);
   const isStudio = pathname?.startsWith("/studio");
@@ -29,6 +63,7 @@ export function Navbar() {
   }, [open]);
 
   const solid = scrolled || open;
+  const onDarkHero = !solid && !isStudio;
 
   return (
     <>
@@ -56,25 +91,20 @@ export function Navbar() {
             aria-label="Primary"
           >
             {navLinks.map((link) => {
-              const base = link.href.split("#")[0] || "/";
-              const active =
-                base === "/"
-                  ? pathname === "/"
-                  : Boolean(pathname?.startsWith(base));
+              const active = isNavActive(link.href, pathname, hash);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "group relative text-[0.6875rem] font-medium tracking-[0.2em] uppercase transition-opacity hover:opacity-100 focus-ring",
-                    active ? "opacity-100" : "opacity-70",
+                    "group relative text-[0.6875rem] font-medium tracking-[0.2em] uppercase transition-opacity focus-ring",
+                    active ? "opacity-100" : "opacity-55 hover:opacity-100",
                   )}
                 >
                   {link.label}
                   <span
                     className={cn(
-                      "absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100",
-                      solid || isStudio ? "bg-obsidian" : "bg-ivory",
+                      "absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover:scale-x-100",
                       active && "scale-x-100",
                     )}
                   />
@@ -84,19 +114,19 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <SoundToggle tone="auto" />
+            <SoundToggle tone={onDarkHero ? "dark" : "light"} />
             <Button
               href="/studio#inquire"
-              variant={solid || isStudio ? "brass" : "light"}
+              variant="brass"
               size="md"
-              className="!py-2.5"
+              className="!py-2.5 !text-[#111111]"
             >
               Private Lessons
             </Button>
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
-            <SoundToggle tone="auto" />
+            <SoundToggle tone={onDarkHero ? "dark" : "light"} />
             <button
               type="button"
               className="focus-ring inline-flex h-10 w-10 items-center justify-center"
@@ -130,23 +160,29 @@ export function Navbar() {
                 show: { transition: { staggerChildren: 0.07 } },
               }}
             >
-              {navLinks.map((link) => (
-                <motion.div
-                  key={link.href}
-                  variants={{
-                    hidden: { opacity: 0, y: 18 },
-                    show: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <Link
-                    href={link.href}
-                    className="display block py-3 text-[clamp(2.5rem,10vw,3.5rem)] text-obsidian"
-                    onClick={() => setOpen(false)}
+              {navLinks.map((link) => {
+                const active = isNavActive(link.href, pathname, hash);
+                return (
+                  <motion.div
+                    key={link.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 18 },
+                      show: { opacity: 1, y: 0 },
+                    }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "display block py-3 text-[clamp(2.5rem,10vw,3.5rem)]",
+                        active ? "text-obsidian" : "text-obsidian/55",
+                      )}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 18 },
@@ -154,7 +190,11 @@ export function Navbar() {
                 }}
                 className="mt-8"
               >
-                <Button href="/studio#inquire" variant="brass" className="w-full sm:w-auto">
+                <Button
+                  href="/studio#inquire"
+                  variant="brass"
+                  className="w-full !text-[#111111] sm:w-auto"
+                >
                   Private Lessons
                 </Button>
               </motion.div>

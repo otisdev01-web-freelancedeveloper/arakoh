@@ -26,15 +26,15 @@ type ButtonAsLink = CommonProps & {
 };
 
 const variants: Record<ButtonVariant, string> = {
-  solid:
-    "bg-[#111111] text-[#F4F1EA] border border-[#111111] hover:bg-[#2A2927] hover:border-[#2A2927]",
-  brass:
-    "bg-[#A99570] text-[#111111] border border-[#A99570] hover:bg-[#c4b396] hover:border-[#c4b396]",
-  ghost:
-    "bg-transparent text-[#111111] border border-[#111111]/40 hover:bg-[#111111] hover:text-[#F4F1EA]",
   light:
-    "bg-[#F4F1EA] text-[#111111] border border-[#F4F1EA] hover:bg-[#E9E4DA] hover:border-[#E9E4DA]",
-  dark: "bg-transparent text-[#F4F1EA] border border-[#F4F1EA]/55 hover:bg-[#F4F1EA] hover:text-[#111111]",
+    "bg-[#F4F1EA] !text-[#111111] border border-[#F4F1EA] hover:bg-[#E9E4DA] hover:border-[#E9E4DA]",
+  brass:
+    "bg-[#A99570] !text-[#111111] border border-[#A99570] hover:bg-[#c4b396] hover:border-[#c4b396]",
+  ghost:
+    "bg-transparent !text-[#111111] border border-[#111111]/40 hover:bg-[#111111] hover:!text-[#F4F1EA]",
+  solid:
+    "bg-[#111111] !text-[#F4F1EA] border border-[#111111] hover:bg-[#2A2927] hover:border-[#2A2927]",
+  dark: "bg-transparent !text-[#F4F1EA] border border-[#F4F1EA]/55 hover:bg-[#F4F1EA] hover:!text-[#111111]",
 };
 
 const sizes: Record<ButtonSize, string> = {
