@@ -9,7 +9,7 @@ export function TeachingPhilosophy() {
   const { philosophy } = studioContent;
 
   return (
-    <section className="section-pad bg-parchment/60">
+    <section data-piano-section="philosophy" className="section-pad bg-parchment/60">
       <div className="site-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div>
           <RevealText>

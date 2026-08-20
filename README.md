@@ -49,6 +49,12 @@ Drop real photography into `public/images/` using the existing filenames:
 
 Current files are editorial placeholders only.
 
-## Contact form
+## Optional piano sound
 
-The inquiry form validates on the client and opens a prefilled `mailto:` to `arakohpiano@gmail.com`. Connect an email API later if desired.
+The site includes an opt-in **♪ Sound On / Off** control in the navigation.
+
+- Completely silent by default
+- Soft piano cues play once per major section when enabled
+- Footer includes a quiet piano-key discovery
+- Audio files live in `public/audio/` and are configured in `data/audio.ts`
+

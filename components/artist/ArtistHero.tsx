@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { artistContent } from "@/data/artist";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { PianoKeyMotif } from "@/components/ui/PianoKeyMotif";
 import { useReducedMotion } from "@/hooks/useMedia";
 import { DURATION, EASE_CINEMATIC, STAGGER } from "@/lib/motion";
 
@@ -29,12 +30,13 @@ export function ArtistHero() {
         "[data-hero-image]",
         { opacity: 0, scale: 1.08 },
         { opacity: 1, scale: 1, duration: DURATION.slow },
+        0.05,
       )
         .fromTo(
           "[data-hero-eyebrow]",
           { opacity: 0, y: 18 },
           { opacity: 1, y: 0, duration: DURATION.reveal },
-          "-=0.7",
+          0.45,
         )
         .fromTo(
           "[data-hero-title] span",
@@ -45,25 +47,25 @@ export function ArtistHero() {
             duration: DURATION.reveal,
             stagger: STAGGER.tight,
           },
-          "-=0.55",
+          0.65,
         )
         .fromTo(
           "[data-hero-copy]",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: DURATION.reveal },
-          "-=0.4",
+          0.95,
         )
         .fromTo(
           "[data-hero-cta]",
           { opacity: 0, y: 16 },
           { opacity: 1, y: 0, duration: DURATION.fast },
-          "-=0.25",
+          1.2,
         )
         .fromTo(
           "[data-hero-scroll]",
           { opacity: 0 },
           { opacity: 1, duration: 0.6 },
-          "-=0.1",
+          1.45,
         );
 
       gsap.to("[data-hero-scroll-line]", {
@@ -81,6 +83,7 @@ export function ArtistHero() {
   return (
     <section
       ref={root}
+      data-piano-section="hero"
       className="relative min-h-[100svh] overflow-hidden bg-obsidian text-ivory"
       aria-label="Ara Koh — Concert pianist hero"
     >
@@ -158,6 +161,8 @@ export function ArtistHero() {
           />
         </span>
       </div>
+
+      <PianoKeyMotif tone="dark" className="bottom-0 opacity-70" />
     </section>
   );
 }

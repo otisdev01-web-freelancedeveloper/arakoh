@@ -2,6 +2,7 @@
 
 import { artistContent } from "@/data/artist";
 import { AmbientYouTube } from "@/components/ui/AmbientYouTube";
+import { MusicalDivider } from "@/components/ui/MusicalDivider";
 import { RevealImage } from "@/components/ui/RevealImage";
 import { RevealText } from "@/components/ui/RevealText";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -10,7 +11,10 @@ export function PerformanceSection() {
   const { performance, video } = artistContent;
 
   return (
-    <section className="bg-obsidian text-ivory">
+    <section
+      data-piano-section="performance"
+      className="bg-obsidian text-ivory"
+    >
       <div className="section-pad">
         <div className="site-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
@@ -25,7 +29,7 @@ export function PerformanceSection() {
               {performance.body}
             </RevealText>
 
-            <hr className="editorial-divider--light mt-10 max-w-md" />
+            <MusicalDivider tone="dark" className="mt-10 max-w-md" />
 
             <dl className="mt-8 grid gap-6 sm:grid-cols-3">
               {performance.meta.map((item) => (
@@ -40,14 +44,20 @@ export function PerformanceSection() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <RevealImage
-              src={performance.image.src}
-              alt={performance.image.alt}
-              objectPosition={performance.image.objectPosition}
-              className="aspect-[4/5] w-full md:aspect-[5/6]"
-              sizes="(max-width: 1024px) 100vw, 46vw"
-              parallax
-            />
+            <div className="relative">
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] shadow-[inset_0_0_80px_rgba(0,0,0,0.45)]"
+                aria-hidden
+              />
+              <RevealImage
+                src={performance.image.src}
+                alt={performance.image.alt}
+                objectPosition={performance.image.objectPosition}
+                className="aspect-[4/5] w-full md:aspect-[5/6]"
+                sizes="(max-width: 1024px) 100vw, 46vw"
+                parallax
+              />
+            </div>
           </div>
         </div>
       </div>

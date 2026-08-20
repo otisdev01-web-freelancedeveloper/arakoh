@@ -92,7 +92,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="inquire" className="section-pad bg-obsidian text-ivory">
+    <section id="inquire" data-piano-section="inquire" className="section-pad bg-obsidian text-ivory">
       <div className="site-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div>
           <RevealText>

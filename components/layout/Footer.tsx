@@ -1,11 +1,14 @@
 import Link from "next/link";
+import { PianoEasterEgg } from "@/components/ui/PianoEasterEgg";
+import { PianoKeyMotif } from "@/components/ui/PianoKeyMotif";
 import { footerLinks, siteConfig } from "@/data/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-obsidian/10 bg-obsidian text-ivory">
+    <footer className="relative border-t border-obsidian/10 bg-obsidian text-ivory">
+      <PianoKeyMotif tone="dark" className="top-0 opacity-80" />
       <div className="site-shell section-pad !py-16 md:!py-20">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
           <div>
@@ -22,6 +25,7 @@ export function Footer() {
             >
               {siteConfig.email}
             </a>
+            <PianoEasterEgg />
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:justify-items-end">

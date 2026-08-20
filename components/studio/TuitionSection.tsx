@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function TuitionSection() {
   return (
-    <section id="tuition" className="section-pad bg-ivory">
+    <section id="tuition" data-piano-section="tuition" className="section-pad bg-ivory">
       <div className="site-shell">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <RevealText>

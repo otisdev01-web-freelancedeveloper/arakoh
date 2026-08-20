@@ -15,7 +15,7 @@ export function VideoFeature() {
   const posterSrc = video.poster.src;
 
   return (
-    <section id="watch" className="section-pad bg-parchment/50">
+    <section id="watch" data-piano-section="watch" className="section-pad bg-parchment/50">
       <div className="site-shell">
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <RevealText>

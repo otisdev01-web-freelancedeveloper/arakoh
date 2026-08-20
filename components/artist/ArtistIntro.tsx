@@ -7,7 +7,7 @@ export function ArtistIntro() {
   const { intro } = artistContent;
 
   return (
-    <section id="intro" className="section-pad bg-ivory">
+    <section id="intro" data-piano-section="intro" className="section-pad bg-ivory">
       <div className="site-shell grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-20">
         <RevealText>
           <p className="eyebrow">{intro.label}</p>

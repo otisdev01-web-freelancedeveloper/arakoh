@@ -9,6 +9,7 @@ import { navLinks, siteConfig } from "@/data/site";
 import { cn } from "@/lib/cn";
 import { useScrolled } from "@/hooks/useMedia";
 import { Button } from "@/components/ui/Button";
+import { SoundToggle } from "@/components/audio/SoundToggle";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -82,7 +83,8 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-3 lg:flex">
+            <SoundToggle tone="auto" />
             <Button
               href="/studio#inquire"
               variant={solid || isStudio ? "brass" : "light"}
@@ -93,15 +95,18 @@ export function Navbar() {
             </Button>
           </div>
 
-          <button
-            type="button"
-            className="focus-ring inline-flex h-10 w-10 items-center justify-center lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-1 lg:hidden">
+            <SoundToggle tone="auto" />
+            <button
+              type="button"
+              className="focus-ring inline-flex h-10 w-10 items-center justify-center"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </header>
 

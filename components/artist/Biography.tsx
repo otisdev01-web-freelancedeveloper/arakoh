@@ -14,7 +14,7 @@ export function Biography() {
   const rest = about.paragraphs.slice(2);
 
   return (
-    <section id="about" className="section-pad bg-parchment/60">
+    <section id="about" data-piano-section="about" className="section-pad bg-parchment/60">
       <div className="site-shell grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <RevealImage
           src={about.image.src}

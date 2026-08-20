@@ -14,7 +14,7 @@ export function PerformanceList() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <section id="performances" className="section-pad bg-ivory">
+    <section id="performances" data-piano-section="performances" className="section-pad bg-ivory">
       <div className="site-shell">
         <RevealText>
           <SectionHeading

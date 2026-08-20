@@ -11,7 +11,7 @@ export function ContactCTA() {
   const { contactCta } = artistContent;
 
   return (
-    <section className="relative overflow-hidden section-pad bg-obsidian text-ivory">
+    <section className="relative overflow-hidden section-pad bg-obsidian text-ivory" data-piano-section="contact">
       {contactCta.background ? (
         <div className="absolute inset-0" aria-hidden>
           <Image

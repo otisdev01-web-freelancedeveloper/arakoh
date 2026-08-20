@@ -3,6 +3,7 @@
 import { artistContent } from "@/data/artist";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { PianoKeyMotif } from "@/components/ui/PianoKeyMotif";
 import { RevealImage } from "@/components/ui/RevealImage";
 import { RevealText } from "@/components/ui/RevealText";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -11,7 +12,8 @@ export function TeachingTeaser() {
   const { teachingTeaser } = artistContent;
 
   return (
-    <section className="section-pad bg-parchment/70">
+    <section className="relative section-pad bg-parchment/70" data-piano-section="studio">
+      <PianoKeyMotif tone="light" className="top-0" />
       <div className="site-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <RevealText>

@@ -53,6 +53,7 @@ export function StudioHero() {
   return (
     <section
       ref={root}
+      data-piano-section="studio"
       className="relative overflow-hidden bg-ivory pt-[calc(var(--nav-h)+2.5rem)]"
       aria-label="Private piano studio"
     >
